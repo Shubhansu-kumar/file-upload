@@ -28,9 +28,24 @@ const App = () => {
   });
 
   const imagePreviews = image.map((image, index) => (
-    <div key={index} style={{margin : '10px'}}>
-      <img src={image.preview} width={"300px"} />
-      <button onClick={() => removeImage(index)}>Remove</button>
+    <div
+      key={index}
+      style={{ margin: "10px", display: "flex", flexDirection: "column" }}
+    >
+      <img src={image.preview} width={"300px"} height={"300px"} />
+      <button
+        style={{
+          width: "300px",
+          backgroundColor: "red",
+          color: "white",
+          marginTop: "5px",
+          border: "1px solid white",
+          borderRadius: "5px",
+        }}
+        onClick={() => removeImage(index)}
+      >
+        Remove
+      </button>
     </div>
   ));
 
@@ -43,12 +58,15 @@ const App = () => {
           flexDirection: "row",
           border: "2px solid black",
           margin: "13px",
-          justifyContent:'space-around',
-          backgroundColor:'lightblue'
+          justifyContent: "space-around",
+          backgroundColor: "lightblue",
         }}
       >
         <input {...getInputProps()} />
         <p>Click to Select The Images</p>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <p>Image Preview</p>
       </div>
       <div
         style={{
